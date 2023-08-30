@@ -50,9 +50,15 @@ export default function Questionnaire({
             const neutralResponses = surveyData.filter(response => response.response === '2');
             const disagreeResponses = surveyData.filter(response => response.response === '3');
 
+          
+            console.log('Agree Responses:', agreeResponses.length);
+            console.log('Neutral Responses:', neutralResponses.length);
+            console.log('Disagree Responses:', disagreeResponses.length);
+
             setAgreeCount(agreeResponses.length);
             setNeutralCount(neutralResponses.length);
             setDisagreeCount(disagreeResponses.length);
+
 
             navigate("/");
         } catch (error) {
@@ -63,7 +69,7 @@ export default function Questionnaire({
     return (
         <div className="container-table">
             <div className="checkScale">
-                <h2>On a scale of 1 to 3, indicate whether you strongly agree neutral or disagree</h2>
+                <h2>Indicate whether you  agree, neutral or disagree</h2>
             </div>
             <table className="table">
                 <thead>

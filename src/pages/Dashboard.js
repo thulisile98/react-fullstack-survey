@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../firebase';
-
+import  {Dashboards} from './Dashboards.css';
 
 function Dashboard() {
     const [questionsCount, setQuestionsCount] = useState(0);
@@ -22,21 +22,26 @@ function Dashboard() {
 
         const fetchResponsesCount = async () => {
             try {
-                const responseRef = collection(db, 'responses');
+                const responseRef = collection(db, 'survey'); // Use the correct collection name
                 const snapshot = await getDocs(responseRef);
                 let agree = 0;
                 let neutral = 0;
                 let disagree = 0;
 
                 snapshot.forEach((doc) => {
-                    const response = doc.data().response;
-                    if (response === '1') {
-                        agree++;
-                    } else if (response === '2') {
-                        neutral++;
-                    } else if (response === '3') {
-                        disagree++;
-                    }
+                    const responses = doc.data().responses;
+                    responses.forEach((response) => {
+                        // Check if the response is submitted (not null)
+                        if (response.response !== null) {
+                            if (response.response === '1') {
+                                agree++;
+                            } else if (response.response === '2') {
+                                neutral++;
+                            } else if (response.response === '3') {
+                                disagree++;
+                            }
+                        }
+                    });
                 });
 
                 setAgreeCount(agree);
@@ -73,7 +78,6 @@ function Dashboard() {
                 </div>
             </div>
         </div>
-        
     );
 }
 
