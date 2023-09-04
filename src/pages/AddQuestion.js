@@ -11,7 +11,6 @@ import  {AddQuestions} from './AddQuestions.css';
 
 export default function AddQuestion() {
   
-  
     const initialState = {
         question: ""
     };
@@ -69,7 +68,7 @@ export default function AddQuestion() {
                 await addDoc(questionRef, { question: data.question });
     
                 setData(initialState);
-                // navigate("/");
+                
             } catch (error) {
                 console.error("Error adding question: ", error);
             }
