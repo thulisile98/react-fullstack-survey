@@ -115,7 +115,7 @@ export default function Questionnaire({
                     ))}
                 </tbody>
             </table>
-            <button className="btn btn-outline-danger" onClick={handleSubmit}>
+            <button className="btn btn-outline pink-outline-btn" onClick={handleSubmit}>
                  Submit
             </button>
         

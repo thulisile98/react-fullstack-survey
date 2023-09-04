@@ -2,13 +2,23 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh; 
-    width: 180vh;
-    margin-top: 105px;
-  
+    justify-content: center; 
+    height: 70vh; 
+    width: 140vh;
+    margin-left: 35vh;
+    margin-top: 35px;
 }
 
-.table {
-    margin-top: 100px; 
-    text-align: center;
+.pink-outline-btn {
+    color: #f50057;            
+    border-color:  rgb(240, 203, 238);      
+    background-color: rgb(240, 203, 238);  
 }
+
+.btn{
+    margin-left: 10vh;
+
+  font-size: medium;
+}
+
+
